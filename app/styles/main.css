@@ -1,0 +1,36 @@
+.cell {
+    float:left;
+    width: 29px;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    text-transform: uppercase;
+    /*display: inline;*/
+}
+
+.lt, .mt, .rt, .lc, .mc, .rc {border-bottom: 1px solid #222222;}
+.lt, .lc, .lb, .mt, .mc, .mb {border-right: 1px solid #222222;}
+
+.x {color: aquamarine;}
+.x:hover {
+    color: blue;
+}   
+
+
+.o {color: tomato;}
+
+.row {
+    /*display: block;*/
+    clear: both;
+}
+
+#gameboard {
+    margin: 0 auto;
+    width: 90px;
+    background-color: #FFF;
+    overflow: hidden;
+}
+
+body {
+    background-color: #3b5998;
+}
