@@ -11,8 +11,29 @@
 .lt, .mt, .rt, .lc, .mc, .rc {border-bottom: 1px solid #222222;}
 .lt, .lc, .lb, .mt, .mc, .mb {border-right: 1px solid #222222;}
 
-.x {color: aquamarine;}
-.o {color: tomato;}
+.x {
+    color: aquamarine;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-name: bounceIn;
+}
+.o {
+    color: tomato;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-name: bounceIn;
+}
+
+/*
+.x:hover {
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  animation-name: bounceIn;
+}
+*/
 
 .row {
     /*display: block;*/
