@@ -12,11 +12,6 @@
 .lt, .lc, .lb, .mt, .mc, .mb {border-right: 1px solid #222222;}
 
 .x {color: aquamarine;}
-.x:hover {
-    color: blue;
-}   
-
-
 .o {color: tomato;}
 
 .row {

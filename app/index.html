@@ -14,6 +14,7 @@
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
+
 </head>
   <body>
     <!--[if lt IE 7]>
@@ -25,30 +26,30 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-  <div id="gameboard">
+  <div id='gameboard'>
     
-    <div class="row">
-      <div class="cell lt x">x</div>
-      <div class="cell mt o">o</div>
-      <div class="cell rt x">x</div>
+    <div class='row'>
+      <div class='cell lt' id='cell1' onclick = handleClick(1)></div>
+      <div class='cell mt' id='cell2' onclick = handleClick(2)></div>
+      <div class='cell rt' id='cell3' onclick = handleClick(3)></div>
     </div>
 
-    <div class="row">
-      <div class="cell lc o">o</div>
-      <div class="cell mc x">x</div>
-      <div class="cell rc o">O</div>
+    <div class='row'>
+      <div class='cell lc' id='cell4' onclick = handleClick(4)></div>
+      <div class='cell mc' id='cell5' onclick = handleClick(5)></div>
+      <div class='cell rc' id='cell6' onclick = handleClick(6)></div>
     </div>
 
-    <div class="row">
-      <div class="cell lb x">x</div>
-      <div class="cell mb o">o</div>
-      <div class="cell rb x">x</div>
+    <div class='row'>
+      <div class='cell lb' id='cell7' onclick = handleClick(7)></div>
+      <div class='cell mb' id='cell8' onclick = handleClick(8)></div>
+      <div class='cell rb' id='cell9' onclick = handleClick(9)></div>
     </div>
 
   </div>
 
 
-    <script src="bower_components/jquery/jquery.js"></script>
+    <!--<script src="bower_components/jquery/jquery.js"></script>-->
     <script src="bower_components/angular/angular.js"></script>
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
