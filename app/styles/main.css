@@ -1,6 +1,6 @@
 .cell {
     float:left;
-    width: 29.2px;
+    width: 29px;
     height: 29px;
     line-height: 29px;
     text-align: center;
@@ -19,6 +19,7 @@
     animation-timing-function: ease;
     animation-fill-mode: both;
     animation-name: flip;
+    background-color: tomato;
 }
 .o {
     color: tomato;
@@ -26,6 +27,7 @@
     animation-timing-function: ease;
     animation-fill-mode: both;
     animation-name: flip;
+    background-color: aquamarine;
 }
 
 /*
