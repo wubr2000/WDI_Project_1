@@ -35,6 +35,10 @@ function isTopHorizontalThreeOccupiedByMe() {
 		winning[x] = document.getElementById('cell' + (x+1)).innerHTML;
 	}
 	
-	if (winning[0]!=""&&winning[0]==winning[1]&&winning[1]==winning[2]) { alert("You Won!"); }
+	if (winning[0]!=""&&winning[0]==winning[1]&&winning[1]==winning[2]) { 
+
+		bootbox.alert("You Won!");
+
+	 }
 }
 

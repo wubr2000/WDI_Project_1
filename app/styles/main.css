@@ -5,39 +5,43 @@
     line-height: 29px;
     text-align: center;
     text-transform: uppercase;
-    border: 0.5px solid rgba(59, 89, 152, 1);
+    /*border: 0.5px solid rgba(59, 89, 152, 1);*/
     /*border-bottom: 1px solid rgba(59, 89, 152, 1);*/
     /*display: inline;*/
 }
+
+.mt, .lc, .rc, .mb {background-color: rgba(0,0,0,0.06);} 
+.lt, .rt, .mc, .lb, .rb {background-color: rgba(0,0,0,0.03);}
 
 /*.lt, .mt, .rt, .lc, .mc, .rc {border-bottom: 1px solid rgba(59, 89, 152, 1);}*/
 /*.lt, .lc, .lb, .mt, .mc, .mb {border-right: 1px solid rgba(59, 89, 152, 1);}*/
 
 .x {
-    color: aquamarine;
+    color: rgba(42,44,49,1);
+    font-family: 'Capriola', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    box-shadow: 0.5px 0.5px 1px #888888;
     animation-duration: 1s;
     animation-timing-function: ease;
     animation-fill-mode: both;
     animation-name: flip;
-    background-color: tomato;
-}
-.o {
-    color: tomato;
-    animation-duration: 1s;
-    animation-timing-function: ease;
-    animation-fill-mode: both;
-    animation-name: flip;
-    background-color: aquamarine;
+    background-color: rgba(223,186,105,1);
 }
 
-/*
-.x:hover {
-  animation-duration: 1s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  animation-name: bounceIn;
+.o {
+    color: rgba(42,44,49,1);
+    font-family: 'Capriola', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    box-shadow: 0.5px 0.5px 1px #888888;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-name: flip;
+    background-color: rgba(161,206,247,1);
 }
-*/
+
 
 .row {
     /*display: block;*/
@@ -47,10 +51,10 @@
 #gameboard {
     margin: 0 auto;
     width: 90px;
-    background-color: #FFF;
-    overflow: hidden;
+    /*background-color: #FFF;*/
+    overflow: visible; /*THIS USED TO BE HIDDEN BEFORE I ADDED TWITTER BOOTSTRAP!!*/
 }
 
 body {
-    background-color: rgba(59,89,152, 1);
+    background-color: rgba(255,254,223,1);
 }
