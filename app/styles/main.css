@@ -5,13 +5,18 @@
     line-height: 29px;
     text-align: center;
     text-transform: uppercase;
+
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-name: rotateIn;
     /*border: 0.5px solid rgba(59, 89, 152, 1);*/
     /*border-bottom: 1px solid rgba(59, 89, 152, 1);*/
     /*display: inline;*/
 }
 
-.mt, .lc, .rc, .mb {background-color: rgba(0,0,0,0.06);} 
-.lt, .rt, .mc, .lb, .rb {background-color: rgba(0,0,0,0.03);}
+.mt, .lc, .rc, .mb {background-color: rgba(0,0,0,0.05);} 
+.lt, .rt, .mc, .lb, .rb {background-color: rgba(0,0,0,0.02);}
 
 /*.lt, .mt, .rt, .lc, .mc, .rc {border-bottom: 1px solid rgba(59, 89, 152, 1);}*/
 /*.lt, .lc, .lb, .mt, .mc, .mb {border-right: 1px solid rgba(59, 89, 152, 1);}*/
