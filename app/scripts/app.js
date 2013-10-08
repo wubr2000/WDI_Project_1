@@ -2,24 +2,28 @@
 function changeSquareContent(location, className) {
 	document.getElementById('cell' + location).classList.add(className);
 	document.getElementById('cell'+ location).innerHTML = className;
-
-	//checkWin();
 }
 
 var currentPlayer = "x";
 
 function makeNextMove(location) {
+		
+		//Player x moves
+		currentPlayer = "x";
 		changeSquareContent (location, "x");
-		var t=setTimeout(function(){
 
-			if (checkWin()!==true) { 
+
+		//o AI moves
+		var t=setTimeout( function() {
+
+			if (checkWin()!=true) { 
+				console.log(currentPlayer);
 				changeSquareContent(opponentSelectRandomSquare(), "o");
 				currentPlayer = "o";
 				checkWin(); 
 			}	
 
-		},500);
-		
+		},500);		
 }
 
 
@@ -42,7 +46,6 @@ function sameContent (location1,location2,location3) {
 
 
 function checkWin() {
-
 	for (var h=1; h<=3; h++) {
 		if (sameContent(h,h+3,h+6)) {
 			bootbox.alert(currentPlayer + " won!", clearBoard());
@@ -66,7 +69,6 @@ function checkWin() {
 			bootbox.alert(currentPlayer + " won!", clearBoard());
 			return true;
 		}
-
 }
 
 
@@ -80,18 +82,34 @@ function clearBoard() {
 
 
 function restartGame() {
-	bootbox.confirm("Want to Restart Game?", function(confirmed) {
-        console.log("Confirmed: "+confirmed);
-    });
+	clearBoard();
+	currentPlayer="x";
 }
 
 
 function opponentSelectRandomSquare() {
-	
 	do {
   		var randomNumber = Math.floor((Math.random()*9)+1);
   	} while (currentSquareClickedAlready(randomNumber)==true);
 
 	return randomNumber;
 }
+
+angular.module("tickeyApp", [])
+  .config(function($routeProvider) {
+	$routeProvider
+		.when('/game_board', {
+			templateUrl: 'views/game_board.html',
+			controller: 'GameBoardCtrl'
+		})
+		.when('/how_to', {
+			templateUrl: 'views/how_to.html',
+			controller: 'HowToCtrl'
+		})
+		.otherwise({
+			redirectTo:'/'
+		})
+  });
+
+
 
