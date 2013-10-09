@@ -17,7 +17,7 @@ function makeNextMove(location) {
 		var t=setTimeout( function() {
 
 			if (checkWin()!=true) { 
-				console.log(currentPlayer);
+				//console.log(currentPlayer);
 				changeSquareContent(opponentSelectRandomSquare(), "o");
 				currentPlayer = "o";
 				checkWin(); 
