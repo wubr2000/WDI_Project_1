@@ -39,9 +39,18 @@
     <![endif]-->
     
   <header>
-      <h1>Tickey<span class='o'>T</span>ackety</h1>
-      <input data-ng-model="name">
+      <h4 align='center'>TicketyTackety</h4>
+      <!--<p class="text-center"><input data-ng-model="name"></p>-->
   </header>
+
+  <div align='center'>
+  <button><a href="/#/game_board" >Play Now</a></button>
+  <button data-ng-hide="is_how_to_page"><a href="/#/how_to">How To</a></button>
+  <button><a href="/#/" >Home</a></button>
+  </div>
+
+  <br/>
+  <br/>
 
   <div data-ng-view></div>
 
@@ -51,6 +60,7 @@
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/game_board.js"></script>
   <script src="scripts/controllers/how_to.js"></script>
+  <script src="scripts/controllers/empty.js"></script>
 
 
   <!-- endbuild -->

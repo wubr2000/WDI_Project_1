@@ -1,6 +1,7 @@
 <div id='gameboard'>
+
     <div class='row'>
-      <div class='cell lt' id='cell1' onclick = handleClick(1)></div>
+      <div class='cell lt' id='cell1' onclick =handleClick(1) data-ng-click="click(1)"></div>
       <div class='cell mt' id='cell2' onclick = handleClick(2)></div>
       <div class='cell rt' id='cell3' onclick = handleClick(3)></div>
     </div>
@@ -16,5 +17,16 @@
       <div class='cell mb' id='cell8' onclick = handleClick(8)></div>
       <div class='cell rb' id='cell9' onclick = handleClick(9)></div>
     </div>
-  </div>
+
+    <br/>
+    <br/>
+    <div align='center'>
+      <button data-ng-click="startTimer()">Start</button>
+      <button data-ng-click="stopTimer()">End</button>
+    </div>
+    <br/>
+    <div align='center'>{{minutes}}:{{seconds}}</div>
+
+
+</div>
 

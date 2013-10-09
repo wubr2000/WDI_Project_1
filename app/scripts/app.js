@@ -23,7 +23,7 @@ function makeNextMove(location) {
 				checkWin(); 
 			}	
 
-		},500);		
+		},1000);		
 }
 
 
@@ -82,7 +82,6 @@ function clearBoard() {
 
 
 function restartGame() {
-	clearBoard();
 	currentPlayer="x";
 }
 
@@ -102,10 +101,17 @@ angular.module("tickeyApp", [])
 			templateUrl: 'views/game_board.html',
 			controller: 'GameBoardCtrl'
 		})
+		
 		.when('/how_to', {
 			templateUrl: 'views/how_to.html',
 			controller: 'HowToCtrl'
 		})
+		
+		.when('/', {
+			templateUrl: 'views/empty.html',
+			controller: 'MainCtrl'
+		})
+		
 		.otherwise({
 			redirectTo:'/'
 		})
