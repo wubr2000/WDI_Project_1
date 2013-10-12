@@ -1,21 +1,23 @@
 <div id='gameboard'>
 
     <div class='row'>
+      <!-- <div class='cell lt {{cells[0]}}' data-ng-click="click(1)">{{cells[0]}}</div>
+       -->
       <div class='cell lt' id='cell1' data-ng-click="click(1)"></div>
-      <div class='cell mt' id='cell2' onclick = handleClick(2) data-ng-click="click(2)"></div>
-      <div class='cell rt' id='cell3' onclick = handleClick(3) data-ng-click="click(3)"></div>
+      <div class='cell mt' id='cell2' data-ng-click="click(2)"></div>
+      <div class='cell rt' id='cell3' data-ng-click="click(3)"></div>
     </div>
 
     <div class='row'>
-      <div class='cell lc' id='cell4' onclick = handleClick(4) data-ng-click="click(4)"></div>
-      <div class='cell mc' id='cell5' onclick = handleClick(5) data-ng-click="click(5)"></div>
-      <div class='cell rc' id='cell6' onclick = handleClick(6) data-ng-click="click(6)"></div>
+      <div class='cell lc' id='cell4' data-ng-click="click(4)"></div>
+      <div class='cell mc' id='cell5' data-ng-click="click(5)"></div>
+      <div class='cell rc' id='cell6' data-ng-click="click(6)"></div>
     </div>
 
     <div class='row'>
-      <div class='cell lb' id='cell7' onclick = handleClick(7) data-ng-click="click(7)"></div>
-      <div class='cell mb' id='cell8' onclick = handleClick(8) data-ng-click="click(8)"></div>
-      <div class='cell rb' id='cell9' onclick = handleClick(9) data-ng-click="click(9)"></div>
+      <div class='cell lb' id='cell7' data-ng-click="click(7)"></div>
+      <div class='cell mb' id='cell8' data-ng-click="click(8)"></div>
+      <div class='cell rb' id='cell9' data-ng-click="click(9)"></div>
     </div>
 
     <br/>
@@ -28,5 +30,15 @@
     <div align='center'>{{minutes}}:{{seconds}}</div>
 
 
+    <br/>
+    <br/>
+    <div align='center'>Leaderboard</div>    
+    <div align='center'>Player 1: {{name_list[0]}}  Wins: {{xwin}}</div>    
+    <div align='center'>Player 2: {{name_list[1]}}  Wins: {{owin}}</div>
+
+    <br/>
+    <div align='center' print-quote>Directive Test</div>
+    <br/>
+    
 </div>
 

@@ -1,15 +1,19 @@
 'use strict';
 
 angular.module('tickeyApp')
-  .controller('GameBoardCtrl', function($scope, $rootScope, $timeout) {  
+  .controller('GameBoardCtrl', function($scope, $rootScope, $timeout, localStorageService) {  
   	
+  	localStorageService.add("names",["Computer"]);
+  	//var playerName = prompt("What is your name?");
+  	var playerName = "Bruno";
+  	//var name_list = []; 
+  	$scope.name_list = localStorageService.get("names");
+  	$scope.name_list.push(playerName);
+  	localStorageService.add("names", $scope.name_list);
+  	console.log($scope.name_list);
+ 
+  
     $scope.name = "Tickety";
-
-    /*
-    $scope.click = function(){
-      alert("I've been clicked!");
-    };
-    */
 
     $rootScope.is_how_to_page = false;
 
@@ -17,6 +21,9 @@ angular.module('tickeyApp')
     $scope.minutes = "00";
     $scope.seconds = "00";
     $scope.countup;
+
+    $scope.xwin = 0;
+    $scope.owin = 0;
     
     $scope.startTimer = function() {
     	
@@ -24,8 +31,7 @@ angular.module('tickeyApp')
     	$scope.minutes = $scope.formatZeroPadding(Math.floor($scope.currentseconds / 60));
       	$scope.seconds = $scope.formatZeroPadding($scope.currentseconds % 60);
     	
-    	$scope.countup = $timeout($scope.startTimer,1000);
-
+    	$scope.countup = $timeout($scope.startTimer, 1000);
     };
 
     $scope.stopTimer = function() {
@@ -45,8 +51,12 @@ angular.module('tickeyApp')
 
 	$scope.currentPlayer = "x";
 
+	$scope.cells = [];
+
 	$scope.changeSquareContent = function(location, className) {
-		console.log(document.getElementById('cell' + location));
+
+
+
 		document.getElementById('cell' + location).classList.add(className);
 		document.getElementById('cell'+ location).innerHTML = className;
 	}
@@ -63,7 +73,7 @@ angular.module('tickeyApp')
 
 				if ($scope.checkWin()!=true) { 
 					//console.log($scope.currentPlayer);
-					$scope.changeSquareContent($scope.opponentSelectRandomSquare, "o");
+					$scope.changeSquareContent($scope.opponentSelectRandomSquare(), "o");  
 					$scope.currentPlayer = "o";
 					$scope.checkWin(); 
 				}	
@@ -93,6 +103,11 @@ angular.module('tickeyApp')
 		for (var h=1; h<=3; h++) {
 			if ($scope.sameContent(h,h+3,h+6)) {
 				bootbox.alert($scope.currentPlayer + " won!", $scope.clearBoard);
+				
+				if ($scope.currentPlayer == "x") { $scope.xwin++ };
+				if ($scope.currentPlayer == "o") { $scope.owin++ };
+				console.log($scope.xwin);
+
 				return true;
 			}
 		}
@@ -100,6 +115,10 @@ angular.module('tickeyApp')
 		for (var h=1; h<=7; h+=3) {
 			if ($scope.sameContent(h,h+1,h+2)) {
 				bootbox.alert($scope.currentPlayer + " won!", $scope.clearBoard);
+				
+				if ($scope.currentPlayer == "x") { $scope.xwin++ };
+				console.log($scope.xwin);
+
 				return true;
 			}
 		}
@@ -111,14 +130,14 @@ angular.module('tickeyApp')
 
 		if ($scope.sameContent(3,5,7)) {
 				bootbox.alert($scope.currentPlayer + " won!", $scope.clearBoard);
-				return true;
+				return true;		
 			}
 	}
 
 
 	$scope.clearBoard = function() {
 		for (var x=1; x<=9; x++) {
-			className = document.getElementById('cell' + x).innerHTML;
+			var className = document.getElementById('cell' + x).innerHTML;
 			document.getElementById('cell' + x).innerHTML = "";
 			if (className != "") { document.getElementById('cell' + x).classList.remove(className); }
 		}
@@ -131,14 +150,13 @@ angular.module('tickeyApp')
 
 
 	$scope.opponentSelectRandomSquare = function() {
+		
 		do {
 	  		var randomNumber = Math.floor((Math.random()*9)+1);
 	  	} while ($scope.currentSquareClickedAlready(randomNumber)==true);
-
-		return randomNumber;
+	
+		return randomNumber; 
 	}
-
-
 
 
   });
