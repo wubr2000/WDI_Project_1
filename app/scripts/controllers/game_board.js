@@ -12,7 +12,6 @@ angular.module('tickeyApp')
   	localStorageService.add("names", $scope.name_list);
   	console.log($scope.name_list);
  
-  
     $scope.name = "Tickety";
 
     $rootScope.is_how_to_page = false;
@@ -25,6 +24,8 @@ angular.module('tickeyApp')
     $scope.xwin = 0;
     $scope.owin = 0;
     
+
+    //Timer function
     $scope.startTimer = function() {
     	
     	$scope.currentseconds++;
@@ -46,19 +47,14 @@ angular.module('tickeyApp')
       }
     }
 
-
-
-
+    //Gameplay logic
 	$scope.currentPlayer = "x";
 
-	$scope.cells = [];
+	$scope.cells = ["","","","","","","","","",""];
 
 	$scope.changeSquareContent = function(location, className) {
-
-
-
-		document.getElementById('cell' + location).classList.add(className);
-		document.getElementById('cell'+ location).innerHTML = className;
+		$scope.cells[location] = className;
+		//console.log(location);
 	}
 
 	$scope.makeNextMove = function(location) {
@@ -66,88 +62,86 @@ angular.module('tickeyApp')
 			//Player x moves
 			$scope.currentPlayer = "x";
 			$scope.changeSquareContent(location, "x");
-
-
-			//o AI moves
-			var t=setTimeout( function() {
-
-				if ($scope.checkWin()!=true) { 
-					//console.log($scope.currentPlayer);
+			//Player o AI moves
+			if ($scope.checkWin()!=true) { 
 					$scope.changeSquareContent($scope.opponentSelectRandomSquare(), "o");  
 					$scope.currentPlayer = "o";
-					$scope.checkWin(); 
+					$scope.checkWin();
+					$scope.checkTie(); 
 				}	
+	}
 
-			},1000);		
+	$scope.checkTie = function() {
+		//check whether there has been a tie
 	}
 
 	$scope.currentSquareClickedAlready = function(location) {
-		return document.getElementById('cell' + location).innerHTML !== "";
+		return $scope.cells[location] !== "";
 	}
-
 
 	$scope.click = function(location) {
 		if (!$scope.currentSquareClickedAlready(location)) { $scope.makeNextMove(location); }
 	}
 
-
 	$scope.sameContent = function(location1,location2,location3) {
-		var a = document.getElementById('cell' + (location1)).innerHTML
-		var b = document.getElementById('cell' + (location2)).innerHTML
-		var c = document.getElementById('cell' + (location3)).innerHTML
+		var a = $scope.cells[location1];
+		var b = $scope.cells[location2];
+		var c = $scope.cells[location3];
+
 		return (a==b && b==c && a!="");
 	}
 
+	$scope.updatesLeaderboard = function() {
+		($scope.currentPlayer == "x") ? $scope.xwin++ : $scope.owin++;			
+	}
+
+	$scope.afterWin = function() {
+		$scope.updatesLeaderboard();
+		$scope.printWin();
+		$scope.restartGame();			
+	}	
+
+	$scope.printWin = function() {
+		alert($scope.currentPlayer + " won!");
+	}
 
 	$scope.checkWin = function() {
 		for (var h=1; h<=3; h++) {
 			if ($scope.sameContent(h,h+3,h+6)) {
-				bootbox.alert($scope.currentPlayer + " won!", $scope.clearBoard);
-				
-				if ($scope.currentPlayer == "x") { $scope.xwin++ };
-				if ($scope.currentPlayer == "o") { $scope.owin++ };
-				console.log($scope.xwin);
-
+				$scope.afterWin();
 				return true;
 			}
-		}
+		};
 
 		for (var h=1; h<=7; h+=3) {
 			if ($scope.sameContent(h,h+1,h+2)) {
-				bootbox.alert($scope.currentPlayer + " won!", $scope.clearBoard);
-				
-				if ($scope.currentPlayer == "x") { $scope.xwin++ };
-				console.log($scope.xwin);
-
+				$scope.afterWin();
 				return true;
 			}
-		}
+		};
 
 		if ($scope.sameContent(1,5,9)) {
-				bootbox.alert($scope.currentPlayer + " won!", $scope.clearBoard);
+				$scope.afterWin();
 				return true;
-			}
+		};
 
 		if ($scope.sameContent(3,5,7)) {
-				bootbox.alert($scope.currentPlayer + " won!", $scope.clearBoard);
+				$scope.afterWin();
 				return true;		
-			}
-	}
+		};
 
+	}
 
 	$scope.clearBoard = function() {
 		for (var x=1; x<=9; x++) {
-			var className = document.getElementById('cell' + x).innerHTML;
-			document.getElementById('cell' + x).innerHTML = "";
-			if (className != "") { document.getElementById('cell' + x).classList.remove(className); }
+			$scope.cells[x] = "";
 		}
 	}
 
-
 	$scope.restartGame = function() {
-		currentPlayer="x";
+		var restart = confirm("Restart Game?"); 
+		if (restart) {$scope.clearBoard();};
 	}
-
 
 	$scope.opponentSelectRandomSquare = function() {
 		
