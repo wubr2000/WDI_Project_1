@@ -16,7 +16,7 @@ angular.module('tickeyApp')
 angular.module('tickeyApp')
   .directive("enter", function() {
     return {
-        restrict: 'EA',
+        restrict: 'A',
         link: function(scope, element, attrs) {
             element.bind('mouseenter', function() {
                 element.addClass("x");
@@ -29,7 +29,7 @@ angular.module('tickeyApp')
 angular.module('tickeyApp')
   .directive("leave", function() {
     return {
-        restrict: 'EA',
+        restrict: 'A',
         link: function(scope, element, attrs) {
             element.bind('mouseleave', function() {
                 element.removeClass("x");

@@ -20,13 +20,22 @@
 
     <br/>
     <br/>
+
     <div align='center'>
       <button data-ng-click="startTimer()">Start</button>
       <button data-ng-click="stopTimer()">End</button>
+      <button data-ng-click="getName()">Name Please</button>
+      <button data-ng-click="addToFirebase()">Add Win!</button>
     </div>
+
+    <br/>
+    <ul style="list-style: none;">
+      <li>LeaderBoard!</li>
+      <li data-ng-repeat="(name, score) in leaderData.name">{{name}}: {{score}}</li>
+    </ul>
+
     <br/>
     <div align='center'>{{minutes}}:{{seconds}}</div>
-
 
     <br/>
     <br/>

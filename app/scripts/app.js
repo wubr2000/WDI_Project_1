@@ -95,7 +95,7 @@
 // }
 
 angular.module('LocalStorageModule').value('prefix', 'BrunoDatabase');
-angular.module("tickeyApp", ['LocalStorageModule'])
+angular.module("tickeyApp", ['LocalStorageModule', 'firebase'])
   .config(function($routeProvider) {
 	$routeProvider
 		.when('/game_board', {
@@ -113,6 +113,16 @@ angular.module("tickeyApp", ['LocalStorageModule'])
 			controller: 'MainCtrl'
 		})
 		
+		.when('/match_player', {
+		  templateUrl: 'views/match_player.html',
+		  controller: 'MatchPlayerCtrl'
+		})
+
+		.when('/game_board/:gameId/:mySymbol', {
+		  templateUrl: 'views/game_board.html',
+		  controller: 'GameBoardCtrl'
+		})
+
 		.otherwise({
 			redirectTo:'/'
 		})
