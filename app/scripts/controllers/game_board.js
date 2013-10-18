@@ -34,13 +34,16 @@ angular.module('tickeyApp')
             console.log("diff gameboard");
             
             $scope.gameBoard = snapshot.val();
+
+            $scope.info = "Your Turn";
+            
             
             if ($scope.isLosing()) {
               console.log("is really in isLosing");
               $scope.info = $scope.mySymbol + " lost!";
               // redirect to match player if play again
             } else if ($scope.isDraw()) {
-              // print draw
+              $scope.info = "It's a Draw!";
               // redirect to match player if play again
             } else {
               $scope.myTurn = true;
@@ -65,12 +68,14 @@ angular.module('tickeyApp')
           if ($scope.myTurn) {
             
             $scope.gameBoard[index] = $scope.mySymbol;
-            
+
+            $scope.info = "Wait";
+
             if ($scope.isWinning()) {
               $scope.info = $scope.mySymbol + " won!";
               // redirect to match player if play again
             } else if ($scope.isDraw()) {
-              // print draw
+              $scope.info = "It's a Draw!";
               // redirect to match player if play again
             } else {
               console.log("I'm here");
@@ -93,12 +98,22 @@ angular.module('tickeyApp')
       }
     
     $scope.isDraw = function() {
+      
       if (!arrays_equal($scope.gameBoard, [])) {
-        //if all squares are taken (i.e. no "" in array)
-
-        //if (!$scope.gameBoard.hasOwnProperty("") && !scope.isWinning()) {return true;}
         
-        return false;
+        var occupied_count = 0;
+        
+        for (var i=1; i<=9; i++) {
+          if ($scope.gameBoard[i]!=="") occupied_count++;
+        }
+
+        console.log("occupied squares " + occupied_count);
+
+        if (occupied_count==9 && !$scope.isWinning()) {
+          return true;
+        } else { 
+          return false;
+        }
 
       } 
     }    
