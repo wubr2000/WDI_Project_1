@@ -1,0 +1,58 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tickey</title>
+    <meta name="description" content="Online Tic Tac Toe">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link href="http://fonts.googleapis.com/css?family=Capriola" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="styles/f5805ef5.main.css">
+
+</head>
+
+  <body data-ng-app="tickeyApp">
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+    <!-- <script src="scripts/bootbox.js"></script> -->
+
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+    
+  <header>
+      <h4 align="center">TicketyTackety</h4>
+      <!--<p class="text-center"><input data-ng-model="name"></p>-->
+  </header>
+
+  <div align="center">
+  <button><a href="/#/game_board">Play Now</a></button>
+  <button data-ng-hide="is_how_to_page"><a href="/#/how_to">How To</a></button>
+  <button><a href="/#/">Home</a></button>
+  </div>
+
+  <br>
+  <br>
+  <div data-ng-view=""></div>
+
+  <!--<script src="bower_components/jquery/jquery.js"></script>-->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
+  <script src="bower_components/angular-localstorage/angular-local-storage.js"></script>
+  
+  <script src="scripts/53c1d67d.scripts.js"></script>
+</body>
+</html>
