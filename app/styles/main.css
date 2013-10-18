@@ -15,6 +15,28 @@
     /*display: inline;*/
 }
 
+.wininfo {
+    clear: both;
+    margin: 0 auto;
+    /*float:left;
+    */
+    width: 79px;
+    height: 79px;
+    line-height: 79px;
+    text-align: center;
+    text-transform: uppercase;
+
+    background-color: rgba(0,0,0,0.1);
+
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-name: rotateIn;
+    /*border: 0.5px solid rgba(59, 89, 152, 1);*/
+    /*border-bottom: 1px solid rgba(59, 89, 152, 1);*/
+    /*display: inline;*/
+}
+
 .mt, .lc, .rc, .mb {background-color: rgba(0,0,0,0.05);} 
 .lt, .rt, .mc, .lb, .rb {background-color: rgba(0,0,0,0.02);}
 

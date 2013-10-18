@@ -4,7 +4,6 @@ angular.module('tickeyApp')
   .controller('MatchPlayerCtrl', function ($scope, angularFire, $location) {
   	$scope.waitingRoom = {};
   	var waitingRoomRef = new Firebase('https://bruno.firebaseio.com/waiting_room');
-  	
   	$scope.promise = angularFire(waitingRoomRef, $scope, 'waitingRoom');
   	// $scope.promise.then (function () {
   	// 	$scope.createWaitingRoom();

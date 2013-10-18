@@ -1,27 +1,37 @@
 <div id='gameboard'>
 
     <div class='row'>
-      <div class='cell lt {{cells[1]}}' data-ng-click="click(1)">{{cells[1]}}</div> 
-      <div class='cell mt {{cells[2]}}' data-ng-click="click(2)">{{cells[2]}}</div>
-      <div class='cell rt {{cells[3]}}' data-ng-click="click(3)">{{cells[3]}}</div>
+      <div class='cell lt {{gameBoard[1]}}' data-ng-click="handleClick(1)">{{gameBoard[1]}}</div> 
+      <div class='cell mt {{gameBoard[2]}}' data-ng-click="handleClick(2)">{{gameBoard[2]}}</div>
+      <div class='cell rt {{gameBoard[3]}}' data-ng-click="handleClick(3)">{{gameBoard[3]}}</div>
     </div>
 
     <div class='row'>
-      <div class='cell lc {{cells[4]}}' data-ng-click="click(4)">{{cells[4]}}</div>
-      <div class='cell mc {{cells[5]}}' data-ng-click="click(5)">{{cells[5]}}</div>
-      <div class='cell rc {{cells[6]}}' data-ng-click="click(6)">{{cells[6]}}</div>
+      <div class='cell lc {{gameBoard[4]}}' data-ng-click="handleClick(4)">{{gameBoard[4]}}</div>
+      <div class='cell mc {{gameBoard[5]}}' data-ng-click="handleClick(5)">{{gameBoard[5]}}</div>
+      <div class='cell rc {{gameBoard[6]}}' data-ng-click="handleClick(6)">{{gameBoard[6]}}</div>
     </div>
 
     <div class='row'>
-      <div class='cell lb {{cells[7]}}' data-ng-click="click(7)">{{cells[7]}}</div>
-      <div class='cell mb {{cells[8]}}' data-ng-click="click(8)">{{cells[8]}}</div>
-      <div class='cell rb {{cells[9]}}' data-ng-click="click(9)">{{cells[9]}}</div>
+      <div class='cell lb {{gameBoard[7]}}' data-ng-click="handleClick(7)">{{gameBoard[7]}}</div>
+      <div class='cell mb {{gameBoard[8]}}' data-ng-click="handleClick(8)">{{gameBoard[8]}}</div>
+      <div class='cell rb {{gameBoard[9]}}' data-ng-click="handleClick(9)">{{gameBoard[9]}}</div>
     </div>
+</div>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <div class = 'wininfo'>{{info}}</div>
 
     <br/>
     <br/>
 
-    <div align='center'>
+    <!-- <div align='center'>
       <button data-ng-click="startTimer()">Start</button>
       <button data-ng-click="stopTimer()">End</button>
       <button data-ng-click="getName()">Name Please</button>
@@ -45,7 +55,6 @@
 
     <br/>
     <div align='center' enter leave print-quote>Directive Test</div>
-    <br/>
+    <br/> -->
     
-</div>
 
