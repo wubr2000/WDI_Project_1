@@ -12,20 +12,23 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link href="http://fonts.googleapis.com/css?family=Capriola" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet" type="text/css">
+
 
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css"> <!--call normalize.css-->
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/2.0/animate.min.css"> <!--call animate.css-->
-        <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">  --><!--Calls Twitter Bootstrap-->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!--Calls Twitter Bootstrap-->
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"><!--Calls Glyicons-->
 
 
-        <link rel="stylesheet" href="styles/f5805ef5.main.css">
+        <link rel="stylesheet" href="styles/b4a344b0.main.css">
 
 </head>
 
   <body data-ng-app="tickeyApp">
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <!-- <script src="scripts/bootbox.js"></script> -->
 
     <!--[if lt IE 7]>
@@ -38,14 +41,20 @@
     <![endif]-->
     
   <header>
-      <h4 align="center">TicketyTackety</h4>
+      <h2 align="center" class="wendyfont">TicTact-<span class="headrotate">HERO</span></h2>
       <!--<p class="text-center"><input data-ng-model="name"></p>-->
   </header>
 
   <div align="center">
-  <button><a href="/#/game_board">Play Now</a></button>
-  <button data-ng-hide="is_how_to_page"><a href="/#/how_to">How To</a></button>
-  <button><a href="/#/">Home</a></button>
+    
+    <!-- <a href="/#/game_board" ><span class="glyphicon glyphicon-play"></span></a>-->
+    
+    <button type="button" class="btn btn-default btn-lg"><a href="/#/match_player"><span class="glyphicon glyphicon-user"></span></a></button>
+
+    <button data-ng-hide="is_how_to_page" type="button" class="btn btn-default btn-lg"><a href="/#/how_to"><span class="glyphicon glyphicon-question-sign"></span></a></button>
+
+    <button type="button" class="btn btn-default btn-lg"><a href="/#/"><span class="glyphicon glyphicon-home"></span></a></button>
+
   </div>
 
   <br>
@@ -58,6 +67,6 @@
   <script src="https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
   <script src="bower_components/angular-localstorage/angular-local-storage.js"></script>
   
-  <script src="scripts/53c1d67d.scripts.js"></script>
+  <script src="scripts/01fa9546.scripts.js"></script>
 </body>
 </html>
